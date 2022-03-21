@@ -40,6 +40,18 @@ class App extends React.Component {
 		}));
 	};
 
+	componentDidMount() {
+		if (localStorage.getItem("contacts")) {
+			const cont = JSON.parse(localStorage.getItem("contacts"));
+			this.setState({ contacts: cont });
+		} else {
+			localStorage.setItem(
+				"contacts",
+				JSON.stringify(this.state.contacts)
+			);
+		}
+	}
+
 	componentDidUpdate(prevProps, prevState) {
 		if (prevState.contacts !== this.state.contacts) {
 			localStorage.setItem(
