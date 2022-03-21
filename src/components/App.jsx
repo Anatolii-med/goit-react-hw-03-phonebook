@@ -42,7 +42,7 @@ class App extends React.Component {
 
 	componentDidUpdate(prevProps, prevState) {
 		if (prevState.contacts !== this.state.contacts) {
-			localStorage.setState(
+			localStorage.setItem(
 				"contacts",
 				JSON.stringify(this.state.contacts)
 			);
